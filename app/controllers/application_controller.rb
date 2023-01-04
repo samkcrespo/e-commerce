@@ -5,9 +5,15 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
 
-
-
-    private
+    before_action :authorize 
+  
+    private 
+  
+    def authorize 
+      @current_user = User.find_by_id(session[:user_id])
+  
+      render json: { errors: ["Not Authorized"] }, status: :unauthorized unless @current_user
+    end
 
      def render_not_found_response(exception_obj)
         render json: { error: "#{exception_obj.model} not found"}, status: :not_found
