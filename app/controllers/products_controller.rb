@@ -37,9 +37,5 @@ class ProductsController < ApplicationController
     def product_params
         params.permit(:title, :description)
     end
-
-    def render_not_found_response
-        render json: { errors: ['Product Not Found'] }, status: :not_found
-    end
   
 end
