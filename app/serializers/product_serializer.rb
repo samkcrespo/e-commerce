@@ -1,3 +1,3 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :text, :boolean
+  attributes :id, :title, :description
 end
