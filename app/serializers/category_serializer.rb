@@ -1,3 +1,3 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :isActive, :image
+  attributes :id, :name, :description, :image_preview
 end
