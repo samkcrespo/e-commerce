@@ -12,10 +12,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def index
-render json: User.all
-    end
-
     def show
         render json: @current_user
     end
