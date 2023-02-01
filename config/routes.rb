@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :carts
-  resources :users
+  resources :users, only: [:destroy, :update]
 
   get '/me', to: 'users#show'
 
