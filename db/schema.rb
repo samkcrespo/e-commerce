@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_09_002441) do
+ActiveRecord::Schema.define(version: 2023_02_14_001228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,18 @@ ActiveRecord::Schema.define(version: 2023_02_09_002441) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "selected_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "cart_id"
+    t.bigint "order_id"
+    t.bigint "sku_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_selected_items_on_cart_id"
+    t.index ["order_id"], name: "index_selected_items_on_order_id"
+    t.index ["sku_id"], name: "index_selected_items_on_sku_id"
+  end
+
   create_table "skus", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "cart_id", null: false
@@ -118,6 +130,9 @@ ActiveRecord::Schema.define(version: 2023_02_09_002441) do
   add_foreign_key "orders", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products", column: "products_id"
+  add_foreign_key "selected_items", "carts"
+  add_foreign_key "selected_items", "orders"
+  add_foreign_key "selected_items", "skus"
   add_foreign_key "skus", "carts"
   add_foreign_key "skus", "orders"
   add_foreign_key "skus", "products"
