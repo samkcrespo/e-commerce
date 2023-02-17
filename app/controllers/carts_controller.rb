@@ -12,7 +12,7 @@ class CartsController < ApplicationController
     end
 
     def update
-        sku = Sku.find_by(product_id: params[:product_id], color: params[:color], size: params[:size])
+        sku = Sku.find_by(product_id: params[:product_id], size: params[:size])
 
         if sku 
             cartItem = @cart.selected_items.find_by(sku_id: sku.id)

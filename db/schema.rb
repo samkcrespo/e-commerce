@@ -101,8 +101,7 @@ ActiveRecord::Schema.define(version: 2023_02_14_001228) do
     t.bigint "order_id", null: false
     t.bigint "cart_id", null: false
     t.bigint "product_id", null: false
-    t.string "size"
-    t.string "color"
+    t.string "size",
     t.integer "quantity"
     t.decimal "price", precision: 6, scale: 2
     t.datetime "created_at", precision: 6, null: false
