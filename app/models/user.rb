@@ -8,4 +8,5 @@ class User < ApplicationRecord
     validates :last_name, length: { minimum: 1 }
   
     validates :username, uniqueness: true
+    validates :email, uniqueness: true
 end
