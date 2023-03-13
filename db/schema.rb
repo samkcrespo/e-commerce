@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 2023_03_07_221947) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "isAdmin", default: false
-    t.boolean "is_Admin"
     t.text "address"
   end
 
